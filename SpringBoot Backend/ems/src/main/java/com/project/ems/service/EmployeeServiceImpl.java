@@ -32,6 +32,7 @@ public class EmployeeServiceImpl implements EmployeeService {
         return employeeDTO;
     }
 
+    @Override
     public List<EmployeeDTO> getAllEmployees() throws EMSException {
         Iterable<Employee> employeeIterable = employeeRepository.findAll();
         List<EmployeeDTO> employeeDTOs = new ArrayList<>();
@@ -47,5 +48,16 @@ public class EmployeeServiceImpl implements EmployeeService {
             throw new EMSException("Service.EMPLOYEES_NOT_FOUND");
         
         return employeeDTOs;
+    }
+
+    @Override
+    public Long addEmployee(EmployeeDTO employeeDTO) throws EMSException {
+        Employee employee = new Employee();
+        employee.setFirstName(employeeDTO.getFirstName());
+        employee.setLastName(employeeDTO.getLastName());
+        employee.setEmailId(employeeDTO.getEmailId());
+        
+        Employee newEmployee = employeeRepository.save(employee);
+        return newEmployee.getEmployeeId();
     }
 }

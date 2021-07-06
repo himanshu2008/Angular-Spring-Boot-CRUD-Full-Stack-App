@@ -8,4 +8,5 @@ import com.project.ems.exception.EMSException;
 public interface EmployeeService {
     public EmployeeDTO getEmployee(Long employeeId) throws EMSException;
     public List<EmployeeDTO> getAllEmployees() throws EMSException;
+    public Long addEmployee(EmployeeDTO employeeDTO) throws EMSException;
 }

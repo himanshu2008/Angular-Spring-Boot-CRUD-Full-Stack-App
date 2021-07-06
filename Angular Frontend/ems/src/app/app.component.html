@@ -1,6 +1,13 @@
 <div class="container-fluid">
-  <app-navbar></app-navbar>
+  <nav class="navbar navbar-expand-lg navbar-light bg-light">
+    <a class="navbar-brand" href="#">EMS Employee Management System</a>
+    <ul class="navbar-nav">
+      <li class="nav-item">
+        <a routerLink="addEmployee" routerLinkActive="active" class="nav-link">Add Employee</a>
+      </li>
+    </ul>
+  </nav>
+  
   <br>
-  <app-view-employee></app-view-employee>
   <router-outlet></router-outlet>
 </div>
